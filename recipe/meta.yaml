@@ -1,0 +1,29 @@
+{% set name = "ferret" %}
+{% set version = "0.1" %}
+{% set sha256 = "8eb0f28d2f5c57d71511019d416013c6bb7991f993e21aaa1e48be84be9635c0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://raw.githubusercontent.com/michauhl/ferret/main/ferret.py
+  sha256: "{{ sha256 }}"
+
+build:
+  number: 0
+  noarch: python
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+
+test:
+  commands:
+    - ferret.py -h
+
+about:
+  home: https://github.com/michauhl/ferret
+  summary: Muscle shirt
